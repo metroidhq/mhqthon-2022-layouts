@@ -1,0 +1,88 @@
+/* OVERLAY CONFIG */
+/* WARNING: Do not change this unless you know what you're doing */
+
+/* Variables */
+:root {
+  --game-one-x: 0px;
+  --game-one-y: 0px;
+  --game-one-width: 813px;
+  --game-one-height: 711px;
+
+  --game-two-x: 1107px;
+  --game-two-y: 0px;
+  --game-two-width: 813px;
+  --game-two-height: 711px;
+
+  --host-one-x: 649px;
+  --host-one-y: 735px;
+  --host-one-width: 623px;
+  --host-one-height: 249px;
+
+  --social-width: 246px;
+  --social-height: 711px;
+}
+
+/* Layout Path */
+#container #background {
+  clip-path: polygon(
+    var(--game-one-width) var(--game-one-y),
+    var(--game-one-width) var(--game-one-height),
+    var(--game-one-x) var(--game-one-height),
+    var(--game-one-x) var(--host-one-y),
+    calc(var(--host-one-x) + var(--host-one-width)) var(--host-one-y),
+    calc(var(--host-one-x) + var(--host-one-width)) calc(var(--host-one-y) + var(--host-one-height)),
+    var(--host-one-x) calc(var(--host-one-y) + var(--host-one-height)),
+    var(--host-one-x) var(--host-one-y),
+    var(--game-one-x) var(--host-one-y),
+    var(--game-one-x) var(--overlay-height),
+    var(--overlay-width) var(--overlay-height),
+    var(--overlay-width) var(--game-two-height),
+    var(--game-two-x) var(--game-two-height),
+    var(--game-two-x) var(--game-two-y)
+  );
+}
+
+/* Host Name Positions & Dimensions */
+#container #host-one {
+  bottom: var(--bottom-bar-height);
+  left: var(--host-one-x);
+  width: var(--host-one-width);
+  height: calc(var(--host-one-height) / 5);
+  font-size: calc(var(--host-one-height) / 10);
+}
+
+/* Info Boxes Position & Dimensions */
+#container #info-boxes {
+  left: var(--game-one-x);
+  bottom: var(--bottom-bar-height);
+  width: var(--overlay-width);
+  height: var(--host-one-height);
+  overflow-y: visible;
+}
+
+#container #info-boxes .info-box {
+  height: auto;
+}
+
+#container #info-boxes.spread .info-box {
+  margin: 0 calc(calc(var(--host-one-width) + calc(var(--element-margin) * 2)) / 2);
+}
+
+/* Alerts & Chat Position & Dimensions */
+#container #chat,
+#container #alerts {
+  top: var(--game-one-y);
+  left: calc(var(--game-one-x) + var(--game-one-width) + var(--element-margin));
+  width: var(--social-width);
+}
+
+#container #chat,
+#container #alerts {
+  height: var(--social-height);
+}
+
+#container #social-background {
+  display: flex;
+  top: calc(var(--game-one-y) + calc(var(--social-height) / 2));
+  left: calc(calc(var(--game-one-x) + var(--game-one-width) + var(--element-margin)) + calc(var(--social-width) / 2));
+}
