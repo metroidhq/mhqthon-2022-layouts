@@ -25,15 +25,15 @@
 
   --aux-one-x: 467px;
   --aux-one-y: 711px;
-  --aux-one-width: 309px;
+  --aux-one-width: 273px;
   --aux-one-height: 273px;
 
-  --aux-two-x: 1144px;
+  --aux-two-x: 1180px;
   --aux-two-y: 711px;
-  --aux-two-width: 309px;
+  --aux-two-width: 273px;
   --aux-two-height: 273px;
 
-  --social-width: 320px;
+  --social-width: 392px;
   --social-height: 249px;
 }
 
@@ -98,18 +98,20 @@
   width: var(--social-width);
   height: var(--info-box-height);
   overflow-y: visible;
+  display: none;
 }
 
 /* Alerts & Chat Position & Dimensions */
 #container #chat,
 #container #alerts {
   top: calc(var(--game-one-y) + var(--game-one-height) + var(--element-margin));
-    left: calc(var(--host-one-x) + var(--host-one-width) + var(--aux-one-width) + calc(var(--element-margin) * 2));
+  left: calc(var(--host-one-x) + var(--host-one-width) + var(--aux-one-width) + calc(var(--element-margin) * 2));
   width: var(--social-width);
 }
 
 #container #chat {
-  height: calc(var(--social-height) - calc(var(--info-box-height) + var(--divider-height)));
+  /* height: calc(var(--social-height) - calc(var(--info-box-height) + var(--divider-height))); */
+  height: var(--social-height);
 }
 
 #container #alerts {

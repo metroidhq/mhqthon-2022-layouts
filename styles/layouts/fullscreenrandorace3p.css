@@ -90,6 +90,7 @@
   width: var(--social-width);
   height: var(--info-box-height);
   overflow-y: visible;
+  display: none;
 }
 
 /* Alerts & Chat Position & Dimensions */
@@ -101,7 +102,8 @@
 }
 
 #container #chat {
-  height: calc(var(--social-height) - calc(var(--info-box-height) + var(--divider-height)));
+  /* height: calc(var(--social-height) - calc(var(--info-box-height) + var(--divider-height))); */
+    height: var(--social-height);
 }
 
 #container #alerts {

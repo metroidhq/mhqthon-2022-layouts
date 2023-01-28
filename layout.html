@@ -70,6 +70,16 @@
       customStyle.setAttribute('href', 'styles/layouts/' + (params.get('layout') || 'default') + '.css');
       document.getElementsByTagName('head')[0].appendChild(customStyle);
 
+      if (params.has('cg')) {
+        var cgGames = params.get('cg').split(',');
+        var cgStyle = document.createElement('link');
+        cgStyle.setAttribute('id', 'cg-css');
+        cgStyle.setAttribute('rel', 'stylesheet');
+        cgStyle.setAttribute('type', 'text/css');
+        cgStyle.setAttribute('href', 'styles/layouts/cg' + cgGames.join('') + '.css');
+        document.getElementsByTagName('head')[0].appendChild(cgStyle);
+      }
+
       if (params.has('countdown')) insertCountdown();
       if (params.has('standbytitle')) document.getElementById('stand-by-title').textContent = params.get('standbytitle');
       if (params.has('standbysubtitle')) document.getElementById('stand-by-subtitle').textContent = params.get('standbysubtitle');
